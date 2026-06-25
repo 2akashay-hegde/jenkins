@@ -4,16 +4,16 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git ''
+                git 'https://github.com/2akashay-hegde/jenkins.git'
         }
         stage('Build Docker Image') {
             steps {
-                echo 'Docker build -t web-image.'
+                echo 'Docker build -t web-image-app.'
             }
         }
-        stage('Deploy') {
+        stage('Run Docker Container') {
             steps {
-                echo 'Deploying....'
+                echo 'Docker run -d -p 8081:81 web-image-app'
             }
         }
     }
